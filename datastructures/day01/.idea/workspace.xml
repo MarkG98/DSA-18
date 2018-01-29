@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="765d2a9e-83e8-410f-bc97-5cc5c39a684a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../day00/.idea/misc.xml" afterPath="$PROJECT_DIR$/../day00/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/../day00/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../day00/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/../day00/day00.iml" afterPath="$PROJECT_DIR$/../day00/day00.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/day01.iml" afterPath="$PROJECT_DIR$/day01.iml" />
       <change beforePath="$PROJECT_DIR$/src/MyArrayList.java" afterPath="$PROJECT_DIR$/src/MyArrayList.java" />
-      <change beforePath="$PROJECT_DIR$/test/MyArrayListTest.java" afterPath="$PROJECT_DIR$/test/MyArrayListTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,8 +17,8 @@
       <file leaf-file-name="MyArrayListTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/MyArrayListTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1083">
-              <caret line="79" column="35" lean-forward="true" selection-start-line="79" selection-start-column="35" selection-end-line="79" selection-end-column="35" />
+            <state relative-caret-position="667">
+              <caret line="79" column="35" lean-forward="false" selection-start-line="79" selection-start-column="35" selection-end-line="79" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#929#930#0" expanded="true" />
@@ -38,11 +31,11 @@
       <file leaf-file-name="MyArrayList.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MyArrayList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="36" column="31" lean-forward="true" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
+            <state relative-caret-position="265">
+              <caret line="23" column="46" lean-forward="false" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
               <folding>
-                <element signature="e#664#665#0" expanded="true" />
-                <element signature="e#691#692#0" expanded="true" />
+                <element signature="e#875#876#0" expanded="true" />
+                <element signature="e#902#903#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -255,12 +248,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MyArrayListTest - 2018.01.27 at 23h 10m 57s.xml">
-      <configuration name="MyArrayListTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MyArrayListTest - 2018.01.27 at 23h 24m 00s.xml">
-      <configuration name="MyArrayListTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="MyArrayListTest - 2018.01.27 at 23h 51m 01s.xml">
       <configuration name="MyArrayListTest" configurationId="JUnit" />
     </history-entry>
@@ -285,9 +272,15 @@
     <history-entry file="MyArrayListTest - 2018.01.28 at 00h 39m 09s.xml">
       <configuration name="MyArrayListTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="MyArrayListTest - 2018.01.28 at 20h 43m 56s.xml">
+      <configuration name="MyArrayListTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MyArrayListTest - 2018.01.28 at 21h 05m 51s.xml">
+      <configuration name="MyArrayListTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <frame x="65" y="16" width="1857" height="1092" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -355,6 +348,29 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/test/MyArrayListTest.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1422">
+          <caret line="79" column="35" lean-forward="true" selection-start-line="79" selection-start-column="35" selection-end-line="79" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#929#930#0" expanded="true" />
+            <element signature="e#972#973#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MyArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="31" lean-forward="true" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
+          <folding>
+            <element signature="e#875#876#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/MyArrayListTest.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
@@ -370,8 +386,8 @@
         <state relative-caret-position="432">
           <caret line="24" column="26" lean-forward="true" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
           <folding>
-            <element signature="e#664#665#0" expanded="true" />
-            <element signature="e#691#692#0" expanded="true" />
+            <element signature="e#875#876#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -426,8 +442,8 @@
         <state relative-caret-position="360">
           <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
-            <element signature="e#664#665#0" expanded="true" />
-            <element signature="e#691#692#0" expanded="true" />
+            <element signature="e#875#876#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -444,8 +460,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="26" lean-forward="true" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
           <folding>
-            <element signature="e#664#665#0" expanded="true" />
-            <element signature="e#691#692#0" expanded="true" />
+            <element signature="e#875#876#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -473,8 +489,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/MyArrayListTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1083">
-          <caret line="79" column="35" lean-forward="true" selection-start-line="79" selection-start-column="35" selection-end-line="79" selection-end-column="35" />
+        <state relative-caret-position="667">
+          <caret line="79" column="35" lean-forward="false" selection-start-line="79" selection-start-column="35" selection-end-line="79" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#929#930#0" expanded="true" />
@@ -485,11 +501,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MyArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="36" column="31" lean-forward="true" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
+        <state relative-caret-position="265">
+          <caret line="23" column="46" lean-forward="false" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
           <folding>
-            <element signature="e#664#665#0" expanded="true" />
-            <element signature="e#691#692#0" expanded="true" />
+            <element signature="e#875#876#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
           </folding>
         </state>
       </provider>

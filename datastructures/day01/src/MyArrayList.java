@@ -2,14 +2,14 @@ public class MyArrayList {
     private Cow[] elems;
     private int size;
 
-    // TODO: Runtime: O(n)
+    // TODO: Runtime: O(1)
     public MyArrayList() {
 
         elems = new Cow[10];
         size = 0;
     }
 
-    // TODO: Runtime: O(n)
+    // TODO: Runtime: O(1)
     public MyArrayList(int capacity) {
 
         elems = new Cow[capacity];
@@ -23,6 +23,12 @@ public class MyArrayList {
             Cow[] bigger = new Cow[elems.length * 2];
             System.arraycopy(elems,0, bigger, 0, elems.length);
             elems = bigger;
+        }
+        if (size < 0.25*elems.length)
+        {
+            Cow[] smaller = new Cow[elems.length / 2];
+            System.arraycopy(elems,0, smaller, 0, elems.length / 2);
+            elems = smaller;
         }
         elems[size] = c;
         size++;
