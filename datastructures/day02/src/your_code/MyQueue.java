@@ -11,9 +11,7 @@ public class MyQueue<T> implements QueueADT<T> {
 
     private LinkedList<T> ll;
 
-    public MyQueue() {
-        ll = new LinkedList<>();
-    }
+    public MyQueue() { ll = new LinkedList<>(); }
 
     @Override
     public void enqueue(T item) {
