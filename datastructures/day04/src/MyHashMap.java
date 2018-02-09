@@ -8,7 +8,7 @@ public class MyHashMap<K, V> implements Map<K, V> {
     private static final double BETA = .25;
 
     // resizing factor: (new size) = (old size) * (resize factor)
-    private static final double SHRINK_FACTOR = 0.5, GROWTH_FACTOR = 2.0;
+    private static final double CLENCH_FACTOR = 0.5, STRETCH_FACTOR = 2.0;
 
     private static final int MIN_BUCKETS = 16;
 
@@ -53,7 +53,10 @@ public class MyHashMap<K, V> implements Map<K, V> {
         // TODO
         // hint: use key.hashCode() to calculate the key's hashCode using its built in hash function
         // then use % to choose which bucket to return.
-        return null;
+
+        int hashCode = key.hashCode();
+        int index = hashCode % buckets.length;
+        return buckets[index];
     }
 
     @Override
@@ -71,7 +74,15 @@ public class MyHashMap<K, V> implements Map<K, V> {
      */
     @Override
     public boolean containsKey(Object key) {
-        // TODO
+        LinkedList<Entry> bucket = chooseBucket(key);
+        for (int i = 0; i < bucket.size(); i++)
+        {
+            Entry node = bucket.get(i);
+            if (node.getKey() == key)
+            {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -80,13 +91,34 @@ public class MyHashMap<K, V> implements Map<K, V> {
      */
     @Override
     public boolean containsValue(Object value) {
-        // TODO
+        LinkedList<Entry> bucket;
+
+        for (int i = 0; i < buckets.length; i++)
+        {
+            bucket =  buckets[i];
+            for (int j = 0; j < bucket.size(); j++)
+            {
+                Entry node = bucket.get(j);
+                if (node.getValue() == value)
+                {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
     @Override
     public V get(Object key) {
-        // TODO
+        LinkedList<Entry> bucket = chooseBucket(key);
+        for (int i = 0; i < bucket.size(); i++)
+        {
+            Entry node = bucket.get(i);
+            if (node.getKey().equals(key))
+            {
+                return node.getValue();
+            }
+        }
         return null;
     }
 
@@ -96,10 +128,39 @@ public class MyHashMap<K, V> implements Map<K, V> {
      */
     @Override
     public V put(K key, V value) {
-        // TODO: Complete this method
+        if((float)(size) / buckets.length > ALPHA)
+        {
+            rehash(STRETCH_FACTOR);
+        }
+        V old_value = get(key);
+
+        LinkedList<Entry> bucket = chooseBucket(key);
+
+        if (old_value == null)
+        {
+            Entry new_node = new Entry(key, value);
+            bucket.add(new_node);
+            size++;
+
+            return null;
+        }
+        else
+        {
+            for (int i = 0; i < bucket.size(); i++)
+            {
+                Entry node = bucket.get(i);
+                if (node.getValue() == old_value)
+                {
+                    node.setValue(value);
+                }
+            }
+
+            return old_value;
+        }
+
         // hint: use chooseBucket() to determine which bucket to place the pair in
         // hint: use rehash() to appropriately grow the hashmap if needed
-        return null;
+
     }
 
     /**
@@ -109,10 +170,46 @@ public class MyHashMap<K, V> implements Map<K, V> {
      */
     @Override
     public V remove(Object key) {
-        // TODO
+        if((float)(size) / buckets.length <= BETA)
+        {
+            rehash(CLENCH_FACTOR);
+        }
+
+        V value = get(key);
+
+        LinkedList<Entry> bucket = chooseBucket(key);
+
+        if (value == null)
+        {
+            for (int i = 0; i < bucket.size(); i++)
+            {
+                Entry node = bucket.get(i);
+                if (node.getKey().equals(key))
+                {
+                    bucket.remove(node);
+                    size--;
+                }
+            }
+
+            return null;
+        }
+        else
+        {
+            for (int i = 0; i < bucket.size(); i++)
+            {
+                Entry node = bucket.get(i);
+                if (node.getKey().equals(key))
+                {
+                    bucket.remove(node);
+                    size--;
+                }
+            }
+            return value;
+
+        }
+
         // hint: use chooseBucket() to determine which bucket the key would be
         // hint: use rehash() to appropriately grow the hashmap if needed
-        return null;
     }
 
     @Override
@@ -128,7 +225,18 @@ public class MyHashMap<K, V> implements Map<K, V> {
      * the number of buckets is divided by 4.
      */
     private void rehash(double growthFactor) {
-        // TODO
+        LinkedList<Entry>[] temp = buckets;
+        clear();
+        initBuckets((int)(temp.length*growthFactor));
+
+        for (int i = 0; i < temp.length; i++)
+        {
+            for (int k = 0; k < temp[i].size(); k++)
+            {
+                put(temp[i].get(k).getKey(), temp[i].get(k).getValue());
+            }
+        }
+
         // hint: once you have removed all values from the buckets, use put(k, v) to add them back in the correct place
     }
 

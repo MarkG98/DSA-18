@@ -133,10 +133,5 @@ public class Problems {
         }
         return result.replaceAll(".(?=.)", "$0 ");
     }
-
-    public static void main(String[] args) {
-
-    }
-
 }
 
