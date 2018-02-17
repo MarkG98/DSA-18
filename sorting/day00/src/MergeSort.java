@@ -9,11 +9,11 @@ public class MergeSort extends SortAlgorithm {
      * a left and a right portion, sort them, and then merge them together.
      *
      * TODO
-     * Best-case runtime:
-     * Worst-case runtime:
+     * Best-case runtime: O(nlogn)
+     * Worst-case runtime: O(nlogn)
      * Average-case runtime: O(nlogn)
      *
-     * Space-complexity:
+     * Space-complexity: O(n)
      */
     @Override
     public int[] sort(int[] array) {
