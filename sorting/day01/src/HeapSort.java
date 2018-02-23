@@ -18,7 +18,26 @@ public class HeapSort extends SortAlgorithm {
     // Corrects the position of element indexed i by sinking it.
     // Use either recursion or a loop to then sink the child
     public void sink(int i) {
-        // TODO
+        int childIndex = i;
+
+        if (size > leftChild(i)) {
+            if (heap[leftChild(i)] > heap[childIndex])
+            {
+                childIndex = leftChild(i);
+            }
+        }
+        if (size > rightChild(i)) {
+            if (heap[rightChild(i)] > heap[childIndex])
+            {
+                childIndex = rightChild(i);
+            }
+        }
+        if (childIndex != i)
+        {
+            swap(heap,i,childIndex);
+            sink(childIndex);
+        }
+
     }
 
     // Given the array, build a heap by correcting every non-leaf's position, starting from the bottom, then
@@ -28,25 +47,28 @@ public class HeapSort extends SortAlgorithm {
         this.size = array.length;
 
         for (int i=this.size / 2 - 1; i>=0; i--) {
-            // TODO
+            sink(i);
         }
     }
 
     /**
-     * Best-case runtime:
-     * Worst-case runtime:
-     * Average-case runtime:
+     * Best-case runtime: O(nlog(n))
+     * Worst-case runtime: O(nlog(n))
+     * Average-case runtime: O(nlog(n))
      *
-     * Space-complexity:
+     * Space-complexity: O(1)
      */
     @Override
     public int[] sort(int[] array) {
         heapify(array);
 
-        for (int i=size-1; i>0; i--) {
-            // TODO
+        for (int i=size-1; i>0; i--)
+        {
+            swap(array, 0,i);
+            size--;
+            sink(0);
         }
 
-        return heap;
+        return array;
     }
 }

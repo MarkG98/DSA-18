@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class Problems {
 
@@ -42,7 +39,72 @@ public class Problems {
      */
     public static double[] runningMedian(int[] inputStream) {
         double[] runningMedian = new double[inputStream.length];
-        // TODO
+        PriorityQueue<Integer> maxPQ = maxPQ();
+        PriorityQueue<Integer> minPQ = minPQ();
+        int diff;
+
+        if (inputStream.length != 0) {
+            maxPQ.offer(inputStream[0]);
+            runningMedian[0] = inputStream[0];
+
+            for (int i = 1; i < inputStream.length; i++) {
+
+                if (inputStream[i] >= runningMedian[i - 1])
+                {
+                    minPQ.offer(inputStream[i]);
+                }
+                else
+                {
+                    maxPQ.offer(inputStream[i]);
+                }
+
+
+                diff = Math.abs(maxPQ.size() - minPQ.size());
+
+
+
+                if (diff == 0) {
+                    runningMedian[i] = getMedian(Arrays.asList(maxPQ.peek(), minPQ.peek()));
+                }
+                if (diff == 1) {
+                    if (maxPQ.size() > minPQ.size()) {
+                        runningMedian[i] = getMedian(Arrays.asList(maxPQ.peek()));
+                    }
+                    if (maxPQ.size() < minPQ.size()) {
+                        runningMedian[i] = getMedian(Arrays.asList(minPQ.peek()));
+                    }
+                }
+                if (diff == 2) {
+                    if (maxPQ.size() > minPQ.size()) {
+                        int value = maxPQ.poll();
+                        int sec_to_top = maxPQ.peek();
+                        maxPQ.offer(value);
+
+                        runningMedian[i] = getMedian(Arrays.asList(sec_to_top, maxPQ.peek()));
+                    }
+                    if (maxPQ.size() < minPQ.size()) {
+                        int value = minPQ.poll();
+                        int sec_to_top = minPQ.peek();
+                        minPQ.offer(value);
+
+                        runningMedian[i] = getMedian(Arrays.asList(sec_to_top, minPQ.peek()));
+                    }
+                }
+
+                if (diff >= 2)
+                {
+                    if (maxPQ.size() > minPQ.size())
+                    {
+                        minPQ.offer(maxPQ.poll());
+                    }
+                    if (maxPQ.size() < minPQ.size())
+                    {
+                        maxPQ.offer(minPQ.poll());
+                    }
+                }
+
+            }
+        }
         return runningMedian;
     }
 

@@ -25,9 +25,7 @@ public class TripleSumTest {
     }
 
     @Test
-    public void testTripleSum4() {
-        assertEquals(10, TripleSum.tripleSum(new int[]{9, 8, 7, 6, 5, 4, 3, 2, 1, 0}, 12));
-    }
+    public void testTripleSum4() { assertEquals(10, TripleSum.tripleSum(new int[]{9, 8, 7, 6, 5, 4, 3, 2, 1, 0}, 12)); }
 
     @Test
     public void testTripleSum5() {
