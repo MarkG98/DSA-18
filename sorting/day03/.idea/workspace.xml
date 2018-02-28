@@ -11,7 +11,28 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="CountingSort.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CountingSort.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="14" column="36" lean-forward="false" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RadixSort.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/RadixSort.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="257">
+              <caret line="47" column="46" lean-forward="true" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -25,8 +46,8 @@
         <option value="$PROJECT_DIR$/tests/CountingSortTests.java" />
         <option value="$PROJECT_DIR$/tests/ProblemsTests.java" />
         <option value="$PROJECT_DIR$/src/CountingSort.java" />
-        <option value="$PROJECT_DIR$/src/RadixSort.java" />
         <option value="$PROJECT_DIR$/src/Problems.java" />
+        <option value="$PROJECT_DIR$/src/RadixSort.java" />
       </list>
     </option>
   </component>
@@ -51,9 +72,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -76,6 +94,9 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -96,7 +117,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ProblemsTests">
+  <component name="RunManager" selected="JUnit.All in day03">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -266,10 +287,10 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.ProblemsTests" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.RadixSortTests" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.CountingSortTests" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.All in day03" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.All in day03" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.ProblemsTests" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.RadixSortTests" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.CountingSortTests" />
       </list>
     </recent_temporary>
   </component>
@@ -290,8 +311,8 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ProblemsTests - 2018.02.25 at 21h 48m 36s.xml">
-      <configuration name="ProblemsTests" configurationId="JUnit" />
+    <history-entry file="All_in_day03 - 2018.02.26 at 20h 44m 03s.xml">
+      <configuration name="All in day03" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ProblemsTests - 2018.02.25 at 21h 57m 26s.xml">
       <configuration name="ProblemsTests" configurationId="JUnit" />
@@ -322,7 +343,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <frame x="295" y="138" width="1857" height="1092" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -420,18 +441,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CountingSort.java">
+    <entry file="file://$PROJECT_DIR$/tests/ProblemsTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="39" column="33" lean-forward="true" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
+        <state relative-caret-position="-576">
+          <caret line="23" column="26" lean-forward="true" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RadixSort.java">
+    <entry file="file://$PROJECT_DIR$/src/CountingSort.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180">
-          <caret line="19" column="16" lean-forward="false" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+        <state relative-caret-position="252">
+          <caret line="14" column="36" lean-forward="false" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
           <folding />
         </state>
       </provider>
@@ -446,16 +467,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Problems.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="56" column="7" lean-forward="true" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
+        <state relative-caret-position="198">
+          <caret line="37" column="38" lean-forward="true" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/ProblemsTests.java">
+    <entry file="file://$PROJECT_DIR$/src/RadixSort.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-576">
-          <caret line="23" column="26" lean-forward="true" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+        <state relative-caret-position="257">
+          <caret line="47" column="46" lean-forward="true" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
           <folding />
         </state>
       </provider>

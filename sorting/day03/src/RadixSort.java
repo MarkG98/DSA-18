@@ -40,7 +40,7 @@ public class RadixSort {
     }
 
     /**
-     * Runtime: TODO: Express your runtime in terms of n, b, and w       O(w(n + b))
+     * Runtime: TODO: Express your runtime in terms of n, b, and w       O(w*(n + b))
      *
      * n: length of array
      * w: word length of integers A in base b (equal to log base b of k (log_b k) )
