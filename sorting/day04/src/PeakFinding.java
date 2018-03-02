@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class PeakFinding {
 
     // Return -1 if left is higher, 1 if right is higher, 0 if peak
@@ -49,12 +51,81 @@ public class PeakFinding {
 
 
     public static int findOneDPeak(int[] nums) {
-        // TODO
-        return 0;
+
+
+        int mid = ((nums.length) / 2);
+
+        if (peakOneD(mid, nums) == 0)
+        {
+            return mid;
+        }
+        else if (peakOneD(mid, nums) == -1)
+        {
+            findOneDPeak(Arrays.copyOfRange(nums,0, mid));
+        }
+        else if (peakOneD(mid, nums) == 1)
+        {
+            findOneDPeak(Arrays.copyOfRange(nums,mid + 1, nums.length));
+        }
+        return nums[nums.length - 1];
     }
 
     public static int[] findTwoDPeak(int[][] nums) {
-        // TODO
+        int sol[] = new int[2];
+
+        int right = nums[0].length;
+        int left = 0;
+        int lo = 0;
+        int hi = nums.length;
+        int c = 0;
+
+        while(right >= left && hi >= lo)
+        {
+            if (c == 0)
+            {
+                int mid_col = (right + left) / 2;
+
+                int global_max = maxYIndex(mid_col, lo, hi, nums);
+                if (peakX(mid_col, global_max, nums) == -1)
+                {
+                    c++;
+                    right = mid_col;
+                }
+                else if (peakX(mid_col, global_max, nums) == 1)
+                {
+                    c++;
+                    left = mid_col + 1;
+                }
+                else if (peakX(mid_col, global_max, nums) == 0)
+                {
+                    sol[0] = global_max;
+                    sol[1] = mid_col;
+                    return sol;
+                }
+            }
+            else
+            {
+                int mid_row = (hi + lo) / 2;
+
+                int global = maxXIndex(mid_row, left, right, nums);
+                if (peakY(global, mid_row, nums) == -1)
+                {
+                    c--;
+                    hi = mid_row;
+                }
+                else if (peakY(global, mid_row, nums) == 1)
+                {
+                    c--;
+                    lo = mid_row + 1;
+                }
+                else if (peakY(global, mid_row, nums) == 0)
+                {
+                    sol[0] = mid_row;
+                    sol[1] = global;
+                    return sol;
+                }
+            }
+        }
         return null;
     }
 
