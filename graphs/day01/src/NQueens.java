@@ -49,9 +49,48 @@ public class NQueens {
     }
 
 
+
+    public static void SolveQueens(char board[][], int row, int n, List<char[][]> answers, boolean rowTrack[])
+    {
+        if (row >= n)
+        {
+            answers.add(copyOf(board));
+            return;
+        }
+
+        for (int col = 0; col < n; col++)
+        {
+            if (!(checkDiagonal(board, row, col)) && !(rowTrack[col]))
+            {
+                board[row][col] = 'Q';
+                rowTrack[col] = true;
+
+                SolveQueens(copyOf(board), row + 1, n, answers, rowTrack);
+                rowTrack[col] = false;
+
+                board[row][col] = '.';
+            }
+        }
+    }
+
     public static List<char[][]> nQueensSolutions(int n) {
         // TODO
+        boolean[] rowTrack = new boolean[n];
+        for (int i = 0; i < n; i++)
+        {
+            rowTrack[i] = false;
+        }
+
+        char[][] board = new char[n][n];
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                board[i][j] = '.';
+            }
+        }
         List<char[][]> answers = new ArrayList<>();
+        SolveQueens(board, 0, n, answers, rowTrack);
         return answers;
     }
 
