@@ -3,13 +3,16 @@
  * Construct a tree of board states using A* to find a path to the goal
  */
 
+import java.sql.SQLOutput;
 import java.util.*;
 
 public class Solver {
 
     public int minMoves = -1;
+    private State initialState;
     private State solutionState;
     private boolean solved = false;
+    int a = 0;
 
     /**
      * State class to make the cost calculations simple
@@ -27,7 +30,7 @@ public class Solver {
             this.moves = moves;
             this.prev = prev;
             // TODO
-            cost = 0;
+            this.cost = moves + this.board.manhattan();
         }
 
         @Override
@@ -37,6 +40,7 @@ public class Solver {
             if (!(s instanceof State)) return false;
             return ((State) s).board.equals(this.board);
         }
+
     }
 
     /*
@@ -44,7 +48,12 @@ public class Solver {
      */
     private State root(State state) {
         // TODO: Your code here
-        return null;
+        if(state != null) {
+            while(state.prev != null) {
+                return root(state.prev);
+            }
+        }
+        return state;
     }
 
     /*
@@ -54,6 +63,69 @@ public class Solver {
      */
     public Solver(Board initial) {
         // TODO: Your code here
+
+        this.initialState = new State(initial, 0, null);
+        this.initialState.cost = 0;
+
+        if (isSolvable()) { // If the initial board is solvable
+
+            ArrayList<State> open = new ArrayList<>();
+            ArrayList<State> closed = new ArrayList<>();
+
+
+            open.add(initialState);
+
+
+
+            while (!open.isEmpty() && !solved) {
+                //System.out.println(a++);
+                int minI = 0;
+                for (int i = 0; i < open.size(); i++) { // Get minimum cost state of all current states in open
+                    if (open.get(i).cost < open.get(minI).cost) {
+                        minI = i;
+                    }
+                }
+
+                State q = open.remove(minI);
+
+                for (Board u : q.board.neighbors()) { // For all neighbors of minimum cost state q
+
+                    State uState = new State(u, q.moves + 1, q);
+
+                    if(u.isGoal()) { // If a solution has been reached, exit
+                        solutionState = uState;
+                        solved = true;
+                    }
+
+
+                        // If the current state is found in either visited or unvisited sets, but has lower cost, we can ignore current element
+                        boolean ignore = false;
+                        for (State n : open) {
+                            if (n.equals(uState) && (n.cost < uState.cost)) {
+                                ignore = true;
+                            }
+                        }
+                        for (State n : closed) {
+                            if (n.equals(uState) && (n.cost < uState.cost)) {
+                                ignore = true;
+                            }
+                        }
+
+                        if (!ignore) {
+                            open.add(uState); // If we have the lowest cost version of the current state, add it to the list of explored states
+                            uState.prev = q;
+                        }
+
+
+                }
+
+                closed.add(q);
+
+            }
+            minMoves = solutionState.moves;
+        } else {
+            solutionState = null;
+        }
     }
 
     /*
@@ -62,7 +134,7 @@ public class Solver {
      */
     public boolean isSolvable() {
         // TODO: Your code here
-        return false;
+        return initialState.board.solvable();
     }
 
     /*
@@ -70,7 +142,17 @@ public class Solver {
      */
     public Iterable<Board> solution() {
         // TODO: Your code here
-        return null;
+        if (solutionState == null)
+            return null;
+        LinkedList<Board> solutionPath = new LinkedList<>();
+        while (solutionState.prev != null)
+        {
+            solutionPath.addFirst(solutionState.board);
+            solutionState = solutionState.prev;
+        }
+        solutionPath.addFirst(solutionState.board);
+        return solutionPath;
+
     }
 
     public State find(Iterable<State> iter, Board b) {
@@ -86,7 +168,8 @@ public class Solver {
      * Debugging space
      */
     public static void main(String[] args) {
-        int[][] initState = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
+        int[][] initState = {{0, 3, 5}, {2, 1, 8}, {4, 7, 6}};
+
         Board initial = new Board(initState);
 
         Solver solver = new Solver(initial);
@@ -94,3 +177,5 @@ public class Solver {
 
 
 }
+
+
