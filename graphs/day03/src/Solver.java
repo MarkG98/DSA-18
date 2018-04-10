@@ -132,6 +132,8 @@ public class Solver {
      * Is the input board a solvable state
      * Research how to check this without exploring all states
      */
+
+
     public boolean isSolvable() {
         // TODO: Your code here
         return initialState.board.solvable();
