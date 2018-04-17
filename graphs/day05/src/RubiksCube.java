@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -7,6 +8,34 @@ import java.util.concurrent.ThreadLocalRandom;
 public class RubiksCube {
 
     private BitSet cube;
+    private State initialState;
+    private State solutionState;
+    private int cost = 0;
+    private boolean solved = false;
+    private char[] turns = {'u', 'U', 'r', 'R', 'f', 'F'};
+
+    private class State{
+        private RubiksCube rubiksCube;
+        private int moves;
+        private double cost;
+        private State prevState;
+        private char turn;
+
+        public State(RubiksCube rubiksCube, int moves, State prevState, char turn)
+        {
+            this.rubiksCube = rubiksCube;
+            this.moves = moves;
+            this.prevState = prevState;
+            this.turn = turn;
+            this.cost = (double)moves + this.rubiksCube.manhattan3D();
+        }
+
+        public boolean equals(State s) {
+            if (s == this) return true;
+            if (s == null) return false;
+            return (s.rubiksCube.equals(this.rubiksCube));
+        }
+    }
 
     // initialize a solved rubiks cube
     public RubiksCube() {
@@ -76,7 +105,7 @@ public class RubiksCube {
         if (i % 2 == 1) s.set(0, true);
         return s;
     }
-
+    // 0 1 2 3     4 5 6 7   8 9 10 11
     // index from 0-23, color from 0-5
     private void setColor(int index, int color) {
         BitSet colorBitset = intToBitset(color);
@@ -188,10 +217,109 @@ public class RubiksCube {
     }
 
 
-    // return the list of rotations needed to solve a rubik's cube
-    public List<Character> solve() {
-        //
-        return new ArrayList<>();
+
+    public double manhattan3D() {
+        double sum = 0;
+        for (int i = 0; i < 24; i ++) {
+            int toFace = this.getColor(i);
+            int onFace = i/4;
+
+            if (toFace == onFace) {
+                sum += 0;
+            } else if (!(Math.abs(toFace - onFace) == 3)) { // not opposite
+                sum += 1;
+            } else {
+                sum += 2;
+            }
+        }
+
+        //System.out.println(sum/8);
+        return sum/8;
     }
 
+    public ArrayList<RubiksCube> neighbors()
+    {
+        ArrayList<RubiksCube> n = new ArrayList<>();
+        for (int i = 0; i < turns.length; i++) {
+            n.add(this.rotate(turns[i]));
+        }
+        return n;
+    }
+
+
+    private List<Character> getTurns(State solutionState)
+    {
+        LinkedList<Character> turns = new LinkedList<>();
+        while (solutionState.prevState.turn != 'x')
+        {
+            turns.addFirst(solutionState.turn);
+            solutionState = solutionState.prevState;
+        }
+        turns.addFirst(solutionState.turn);
+
+        System.out.println(turns);
+        return turns;
+    }
+
+    public List<Character> solve() {
+
+        this.initialState = new State(this, 0, null,'x');
+        this.initialState.cost = 0;
+
+        ArrayList<State> open = new ArrayList<>();
+        ArrayList<State> closed = new ArrayList<>();
+
+        open.add(initialState);
+
+        while (!open.isEmpty() && !solved)
+
+        {
+            int minI = 0;
+            for (int i = 0; i < open.size(); i++) {
+                if (open.get(i).cost < open.get(minI).cost)
+                {
+                    minI = i;
+                }
+            }
+
+            State q = open.remove(minI);
+
+            for (int i = 0; i < q.rubiksCube.neighbors().size(); i++) {
+
+                State uState = new State (q.rubiksCube.neighbors().get(i),q.moves + 1, q, turns[i]);
+
+                if (uState.rubiksCube.isSolved())
+                {
+                    solutionState = uState;
+                    solved = true;
+                }
+
+
+                boolean ignore = false;
+
+                for (State n : open)
+                {
+                    if (n.equals(uState) && (n.cost < uState.cost))
+                    {
+                        ignore = true;
+                    }
+                }
+                for (State n : closed)
+                {
+                    if (n.equals(uState) && (n.cost < uState.cost))
+                    {
+                        ignore = true;
+                    }
+                }
+
+                if (ignore == false)
+                {
+                    open.add(uState);
+                    uState.prevState = q;
+                }
+            }
+            closed.add(q);
+        }
+        return getTurns(solutionState);
+    }
 }
