@@ -34,14 +34,15 @@ public class BarnRepairTest {
             C = Integer.parseInt(st.nextToken());
             occupied = new int[C];
 
-            for (int i = 0; i < C; i++)
+            for (int i = 0; i < C; i++) {
                 occupied[i] = Integer.parseInt(f.readLine());
+            }
 
             solution = BarnRepair.solve(M, occupied);
             System.out.print("Test case " + t);
 
             if (solution != answers[t]) {
-                System.out.println(" fails");
+                System.out.println(" fails ");
                 passed = false;
             } else {
                 System.out.println(" passes");
