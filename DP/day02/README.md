@@ -1,6 +1,6 @@
 # Dynamic Programming - Day02
 
-**This assignment is due Tues, May 1st**
+**This assignment is due Thursday night, May 3rd**
 
 ## Learning Goals
 - Practice dynamic programming problem solving steps
@@ -124,5 +124,5 @@ isMatch("aab", "c*a*b") → true
 
 <details>
   <summary>Hint 3</summary>
-  For your subproblem, think about: "Does `s[:i]`` match `p[:j]`?" What if `p[j]` is a `.`? What if its a `*`?
+  For your subproblem, think about: "Does `s[:i+1]`` match `p[:j+1]`?" What if `p[j]` is a `.`? What if its a `*`?
 </details>
